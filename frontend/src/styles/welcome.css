@@ -1,0 +1,586 @@
+/* Login presentation only; authentication handlers and authenticated pages are unchanged. */
+.welcome-page {
+  --welcome-text: #f9f7ff;
+  --welcome-muted: #e0d9ee;
+  --welcome-accent: #c27aff;
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(420px, 500px);
+  column-gap: 7vw;
+  min-height: 100svh;
+  padding: 64px 4.8vw 60px 6.45vw;
+  overflow: clip;
+  color: var(--welcome-text);
+  background: #24172f;
+}
+.welcome-campus {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+  pointer-events: none;
+}
+.welcome-atmosphere {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      90deg,
+      #191128eb 0%,
+      #221530cd 19%,
+      #23163258 36%,
+      #28133208 54%,
+      #21152e12 76%,
+      #21152e28
+    ),
+    linear-gradient(0deg, #21112e35, transparent 35%);
+}
+.welcome-logo {
+  z-index: 2;
+  position: absolute;
+  top: 66px;
+  left: 6.45vw;
+}
+.welcome-logo img {
+  width: 225px;
+  height: auto;
+}
+.welcome-copy {
+  position: relative;
+  z-index: 2;
+  align-self: start;
+  min-width: 0;
+  padding-top: 171px;
+  max-width: 620px;
+}
+.welcome-eyebrow {
+  margin-bottom: 8px;
+  color: #d0c7e3;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+.welcome-copy h1 {
+  font-family: var(--font-sans);
+  font-size: clamp(48px, 4.1vw, 76px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.045em;
+  white-space: nowrap;
+}
+.welcome-copy h1 span {
+  color: #b973f5;
+}
+.welcome-page .unified-home-intro {
+  margin-top: 13px;
+  max-width: 470px;
+  font-size: 22px;
+  line-height: 1.4;
+  color: var(--welcome-muted);
+}
+.welcome-page .unified-home-features {
+  display: grid;
+  gap: 24px;
+  max-width: 430px;
+  margin-top: 33px;
+}
+.welcome-page .unified-home-feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  min-height: 69px;
+}
+.welcome-page .unified-home-feature-icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 61px;
+  height: 61px;
+  border: 1px solid #d9b5ff12;
+  border-radius: 19px;
+  background: linear-gradient(135deg, #a97ac95c, #ba8ad34a);
+  color: #cf94ff;
+  box-shadow: inset 0 1px 10px #f0d5ff08;
+}
+.welcome-page .unified-home-feature-icon svg {
+  width: 32px;
+  height: 32px;
+  stroke-width: 1.8;
+}
+.welcome-page .unified-home-feature h2 {
+  margin: 3px 0 4px;
+  color: var(--welcome-text);
+  font-size: 18px;
+  line-height: 1.25;
+  font-weight: 600;
+}
+.welcome-page .unified-home-feature p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.3;
+  color: var(--welcome-muted);
+}
+.welcome-slogan {
+  position: relative;
+  width: fit-content;
+  margin-top: 36px;
+  color: #c888f6;
+  font-family: "Segoe Print", "Comic Sans MS", cursive;
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 1.25;
+  transform: rotate(-7deg);
+}
+.welcome-slogan span {
+  display: block;
+  width: 138px;
+  height: 3px;
+  margin: 11px 0 0 36px;
+  border-radius: 50%;
+  background: linear-gradient(90deg, #ffd985, #c89d56);
+  transform: rotate(-7deg);
+}
+.welcome-login {
+  position: relative;
+  z-index: 2;
+  align-self: center;
+  width: 100%;
+  margin-top: 15px;
+  padding: 53px 39px 34px;
+  border: 1px solid #dcc1ff85;
+  border-radius: 25px;
+  background: linear-gradient(135deg, #82509f9e, #382346c9 51%, #24192cdb);
+  --welcome-glass-blur: blur(18px);
+  -webkit-backdrop-filter: var(--welcome-glass-blur);
+  backdrop-filter: var(--welcome-glass-blur);
+  box-shadow:
+    inset 0 1px 2px #ffffff24,
+    0 20px 60px #180d304a;
+}
+.welcome-page .unified-home-auth {
+  color: var(--welcome-text);
+}
+.welcome-card-logo {
+  display: block;
+  width: 200px;
+  height: auto;
+  margin: 0 auto;
+}
+.welcome-card-heading {
+  margin-top: 29px;
+  margin-bottom: 18px;
+  text-align: center;
+}
+.welcome-card-heading h2 {
+  font: 600 26px/1.25 var(--font-sans);
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+.welcome-card-heading p {
+  margin-top: 8px;
+  color: var(--welcome-muted);
+  font-size: 14px;
+}
+.welcome-page .unified-home-auth form {
+  display: grid;
+  gap: 16px;
+}
+.welcome-page .unified-home-auth form > * {
+  margin-block: 0;
+}
+.welcome-page .unified-home-auth label {
+  color: #f4ecff;
+  font-size: 14px;
+  font-weight: 500;
+}
+.welcome-page .unified-home-auth input {
+  width: 100%;
+  height: 49px;
+  margin-top: 8px;
+  border: 1px solid #ddc7f15e;
+  border-radius: 12px;
+  background: #ffffff0b;
+  color: #fff;
+  font-size: 14px;
+  padding-inline: 16px;
+  box-shadow: inset 0 1px 2px #ffffff09;
+  transition:
+    border-color 0.18s,
+    background 0.18s,
+    box-shadow 0.18s;
+}
+.welcome-page .unified-home-auth input::placeholder {
+  color: #e1d5ed;
+  opacity: 0.9;
+}
+.welcome-page .unified-home-auth input:focus-visible {
+  border-color: #c296ff;
+  background: #ffffff14;
+  outline: none;
+  box-shadow: 0 0 0 3px #b17af52b;
+}
+.welcome-page .unified-home-auth input:autofill {
+  -webkit-text-fill-color: #fff;
+  caret-color: #fff;
+  box-shadow: inset 0 0 0 1000px #513b60;
+}
+.welcome-page .unified-home-input-wrap {
+  position: relative;
+  margin-top: 7px;
+}
+.welcome-page .unified-home-input-wrap input {
+  margin-top: 0;
+  padding-left: 50px;
+  padding-right: 46px;
+}
+.welcome-page .unified-home-input-icon {
+  top: 14px;
+  left: 17px;
+  width: 20px;
+  height: 20px;
+  color: #ece1fa;
+}
+.welcome-page .unified-home-password-toggle {
+  top: 2px;
+  right: 5px;
+  height: 44px;
+  width: 40px;
+  color: #e8d9f5;
+}
+.welcome-page .unified-home-password-toggle:hover {
+  background: #ffffff0d;
+}
+.welcome-page .unified-home-text-button {
+  color: #dfb6ff;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  font-size: 13px;
+  cursor: pointer;
+}
+.welcome-page .unified-home-text-button:hover {
+  color: #fff;
+}
+.welcome-page .unified-home-text-button:focus-visible,
+.welcome-page .unified-home-password-toggle:focus-visible {
+  outline: 2px solid #d4a5ff;
+  outline-offset: 4px;
+}
+.welcome-page .unified-home-auth-options {
+  justify-content: flex-end;
+  min-height: 13px;
+}
+.welcome-page .unified-home-auth button[type="submit"] {
+  height: 51px;
+  border: 1px solid #c9a5ffb0;
+  border-radius: 12px;
+  background: linear-gradient(115deg, #7b3df2, #8751f8);
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow:
+    0 6px 20px #6a29e02a,
+    inset 0 1px 2px #ffffff35;
+  transition:
+    filter 0.18s,
+    box-shadow 0.18s;
+}
+.welcome-page .unified-home-auth button[type="submit"]:hover {
+  filter: brightness(1.12);
+  box-shadow: 0 7px 23px #8a4fff42;
+}
+.welcome-page .unified-home-auth button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.welcome-page .unified-home-divider {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-block: 22px 19px;
+  color: #ebe2fa;
+  font-size: 11px;
+  white-space: nowrap;
+}
+.welcome-page .unified-home-divider span {
+  height: 1px;
+  flex: 1;
+  background: #dac5ee36;
+}
+.welcome-page .unified-home-google {
+  width: 100%;
+  height: 49px;
+  gap: 15px;
+  border: 1px solid #d5b9ec66;
+  border-radius: 12px;
+  background: #ffffff05;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: inset 0 1px 2px #ffffff09;
+}
+.welcome-page .unified-home-google:hover {
+  background: #ffffff12;
+}
+.welcome-page .unified-home-google svg {
+  width: 25px;
+  height: 25px;
+}
+.welcome-account-link {
+  margin-top: 20px;
+  text-align: center;
+  color: #e1d6ee;
+  font-size: 12px;
+}
+.welcome-account-link button {
+  margin-left: 4px;
+}
+.welcome-page .unified-home-recovery {
+  margin-top: 29px;
+}
+.welcome-page .unified-home-recovery h2 {
+  font-size: 25px;
+  font-weight: 600;
+  color: white;
+}
+.welcome-page .unified-home-recovery p,
+.welcome-page .welcome-auth-form .text-muted-foreground {
+  color: #e1d6ee;
+  line-height: 1.5;
+}
+@media (min-width: 1900px) {
+  .welcome-page {
+    grid-template-columns: minmax(0, 1fr) 550px;
+    padding-right: 6vw;
+  }
+  .welcome-login {
+    padding: 58px 43px 40px;
+  }
+  .welcome-copy {
+    max-width: 660px;
+  }
+  .welcome-copy h1 {
+    font-size: 80px;
+  }
+}
+@media (max-width: 1399px) {
+  .welcome-page {
+    grid-template-columns: minmax(0, 1fr) 420px;
+    column-gap: 5vw;
+    padding: 45px 4vw 40px 5vw;
+  }
+  .welcome-logo {
+    z-index: 2;
+    top: 45px;
+    left: 5vw;
+  }
+  .welcome-logo img {
+    width: 190px;
+  }
+  .welcome-copy {
+    padding-top: 150px;
+  }
+  .welcome-copy h1 {
+    font-size: 56px;
+  }
+  .welcome-eyebrow {
+    font-size: 13px;
+  }
+  .welcome-page .unified-home-intro {
+    font-size: 19px;
+    max-width: 420px;
+  }
+  .welcome-page .unified-home-feature {
+    gap: 18px;
+  }
+  .welcome-page .unified-home-feature p {
+    font-size: 14px;
+  }
+  .welcome-page .unified-home-feature h2 {
+    font-size: 17px;
+  }
+  .welcome-login {
+    padding: 38px 30px 30px;
+    margin-top: 45px;
+  }
+  .welcome-card-logo {
+    width: 175px;
+  }
+  .welcome-card-heading h2 {
+    font-size: 24px;
+  }
+  .welcome-slogan {
+    font-size: 27px;
+    margin-top: 36px;
+  }
+}
+@media (max-width: 1099px) and (min-width: 768px) {
+  .welcome-page {
+    grid-template-columns: minmax(0, 1fr) 370px;
+    column-gap: 4vw;
+    padding-inline: 4vw;
+  }
+  .welcome-logo {
+    z-index: 2;
+    left: 4vw;
+  }
+  .welcome-copy {
+    padding-top: 140px;
+  }
+  .welcome-copy h1 {
+    font-size: 44px;
+    white-space: normal;
+  }
+  .welcome-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+  }
+  .welcome-page .unified-home-intro {
+    font-size: 17px;
+  }
+  .welcome-page .unified-home-features {
+    gap: 23px;
+  }
+  .welcome-page .unified-home-feature {
+    gap: 13px;
+  }
+  .welcome-page .unified-home-feature-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 14px;
+  }
+  .welcome-page .unified-home-feature-icon svg {
+    width: 25px;
+    height: 25px;
+  }
+  .welcome-login {
+    padding-inline: 24px;
+  }
+  .welcome-card-heading h2 {
+    font-size: 22px;
+  }
+  .welcome-slogan {
+    font-size: 24px;
+  }
+}
+@media (max-width: 767px) {
+  .welcome-page {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 27px 24px 40px;
+  }
+  .welcome-campus {
+    position: fixed;
+    height: 100svh;
+    object-position: 59% center;
+  }
+  .welcome-atmosphere {
+    position: fixed;
+    background:
+      linear-gradient(90deg, #21112cd9, #29133480), linear-gradient(0deg, #21112c99, transparent);
+  }
+  .welcome-logo {
+    z-index: 2;
+    position: static;
+  }
+  .welcome-logo img {
+    width: 175px;
+  }
+  .welcome-copy {
+    padding-top: 35px;
+    max-width: 520px;
+  }
+  .welcome-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+  }
+  .welcome-copy h1 {
+    font-size: clamp(38px, 9.5vw, 58px);
+    white-space: normal;
+  }
+  .welcome-page .unified-home-intro {
+    font-size: 17px;
+  }
+  .welcome-page .unified-home-features {
+    margin-top: 27px;
+    gap: 18px;
+  }
+  .welcome-page .unified-home-feature {
+    min-height: 56px;
+    gap: 16px;
+  }
+  .welcome-page .unified-home-feature-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 15px;
+  }
+  .welcome-page .unified-home-feature-icon svg {
+    width: 27px;
+    height: 27px;
+  }
+  .welcome-page .unified-home-feature h2 {
+    font-size: 16px;
+    margin-top: 0;
+  }
+  .welcome-page .unified-home-feature p {
+    font-size: 14px;
+  }
+  .welcome-slogan {
+    font-size: 25px;
+    margin: 24px 0 29px 5px;
+  }
+  .welcome-login {
+    align-self: center;
+    width: 100%;
+    max-width: 500px;
+    margin-top: 12px;
+    padding: 32px 25px 29px;
+    border-radius: 22px;
+  }
+  .welcome-card-logo {
+    width: 170px;
+  }
+  .welcome-card-heading {
+    margin-block: 24px;
+  }
+  .welcome-card-heading h2 {
+    font-size: 23px;
+  }
+  .welcome-card-heading p {
+    font-size: 13px;
+  }
+  .welcome-page .unified-home-auth label {
+    font-size: 13px;
+  }
+  .welcome-page .unified-home-auth input {
+    font-size: 13px;
+  }
+}
+@media (max-width: 359px) {
+  .welcome-page {
+    padding-inline: 17px;
+  }
+  .welcome-login {
+    padding-inline: 18px;
+  }
+  .welcome-page .unified-home-divider {
+    font-size: 10px;
+    gap: 9px;
+  }
+  .welcome-account-link {
+    font-size: 11px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .welcome-page .unified-home-auth input,
+  .welcome-page .unified-home-auth button {
+    transition: none;
+  }
+}

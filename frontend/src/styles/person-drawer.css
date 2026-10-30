@@ -1,0 +1,429 @@
+﻿/* Person drawer presentation only. No shared drawer, directory or sidebar overrides. */
+.person-details-drawer {
+  width: min(64vw, 1000px);
+  max-width: 1000px;
+  padding: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: linear-gradient(135deg, #fff, #fefeff);
+  color: #141a39;
+  border: 1px solid #eee9fa;
+  border-radius: 20px 0 0 20px;
+  box-shadow: -12px 0 60px #27174c21;
+}
+body > div:has(+ .person-details-drawer) {
+  background: #181526ad;
+  backdrop-filter: blur(5px);
+}
+.person-details-drawer > button:first-child {
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 47px;
+  height: 47px;
+  top: 21px;
+  right: 27px;
+  border: 1px solid #eee8fc;
+  border-radius: 50%;
+  background: #ffffffed;
+  color: #594295;
+  box-shadow: 0 4px 10px #6c4da212;
+  opacity: 1;
+}
+.person-details-drawer > button:first-child svg {
+  width: 23px;
+  height: 23px;
+}
+.person-drawer-header {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 25px;
+  padding: 25px 83px 25px 35px;
+  text-align: left;
+  background: linear-gradient(120deg, #fff, #f5f1ff);
+  overflow: hidden;
+  min-height: 143px;
+}
+.person-drawer-header::before,
+.person-drawer-header::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+}
+.person-drawer-header::before {
+  background: linear-gradient(135deg, #eee7ff, #dfd4ff);
+  width: 600px;
+  height: 190px;
+  border-radius: 50%;
+  transform: rotate(-23deg);
+  right: -150px;
+  top: 49px;
+  opacity: 0.7;
+}
+.person-drawer-header::after {
+  width: 430px;
+  height: 200px;
+  border: 35px solid #f5f0ff99;
+  border-radius: 50%;
+  right: -75px;
+  top: 28px;
+  transform: rotate(-27deg);
+}
+.person-drawer-avatar {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 81px;
+  height: 81px;
+  border-radius: 50%;
+  font-size: 25px;
+  font-weight: 600;
+  color: #4821b3;
+  background: linear-gradient(135deg, #ded2ff, #eae2ff);
+  box-shadow: 0 4px 11px #7756a513;
+}
+.person-drawer-identity {
+  min-width: 0;
+  margin-top: 0 !important;
+}
+.person-drawer-identity h2 {
+  font-family: var(--font-sans);
+  font-size: 26px;
+  line-height: 1.3;
+  letter-spacing: -0.03em;
+  color: #11162f;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+.person-drawer-identity > p {
+  font-size: 18px;
+  color: #54638a;
+  line-height: 1.5;
+  margin-top: 4px;
+  overflow-wrap: anywhere;
+}
+.person-drawer-body {
+  padding: 24px 28px 28px;
+  min-width: 0;
+}
+.person-drawer-info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 11px 16px;
+  margin-bottom: 22px;
+}
+.person-drawer-info-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-height: 76px;
+  padding: 13px 15px;
+  border: 1px solid #e8e6f3;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px #5d3a8e05;
+  background: linear-gradient(135deg, #fff, #fefeff);
+}
+.person-drawer-info-card > div {
+  min-width: 0;
+}
+.person-drawer-field-icon {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #fcfaff, #f0eaff);
+  color: #7e48db;
+}
+.person-drawer-field-icon svg {
+  width: 24px;
+  height: 24px;
+  stroke-width: 1.7;
+}
+.person-drawer-field-label {
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  color: #6b7195;
+  text-transform: uppercase;
+}
+.person-drawer-info-card p:not(.person-drawer-field-label) {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-top: 4px;
+  overflow-wrap: anywhere;
+}
+.person-drawer-section {
+  padding: 17px 19px;
+  margin-bottom: 14px;
+  border: 1px solid #e7e6f3;
+  border-radius: 16px;
+  box-shadow: 0 3px 12px #5a418b04;
+  background: #fff;
+}
+.person-drawer-section h3 {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #161b3a;
+  margin-bottom: 13px;
+}
+.person-drawer-section h3 svg {
+  width: 33px;
+  height: 33px;
+  padding: 7px;
+  border-radius: 50%;
+  color: #7640d7;
+  background: #f1eaff;
+}
+.person-registration-list,
+.person-note-list {
+  display: grid;
+  gap: 12px;
+}
+.person-registration-card {
+  border: 1px solid #e9e3f7;
+  border-radius: 14px;
+  padding: 16px;
+  background: linear-gradient(125deg, #fff, #fcfaff);
+  box-shadow: 0 3px 9px #5d428204;
+}
+.person-registration-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 17px;
+}
+.person-registration-title {
+  color: #192042;
+  font-size: 15px;
+  line-height: 1.5;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+.person-registration-heading .text-xs {
+  color: #7180a0;
+  font-size: 12px;
+  margin-top: 6px;
+}
+.person-registration-heading a {
+  height: 34px;
+  border: 1px solid #e7defa;
+  background: #f4edff;
+  color: #7943dc;
+  border-radius: 12px;
+  padding: 7px 21px;
+  font-size: 12px;
+  box-shadow: none;
+}
+.person-registration-heading a:hover {
+  background: #eae0fd;
+}
+.person-registration-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 13px;
+}
+.person-registration-badges > span {
+  padding: 5px 12px;
+  border-radius: 25px;
+  font-size: 11px;
+  box-shadow: none;
+  --tw-ring-shadow: 0 0 #0000;
+}
+.person-note-card {
+  background: #f9f7fe;
+  padding: 14px 16px;
+  border: 1px solid #f0ebf9;
+  border-radius: 12px;
+}
+.person-note-card > p:first-child {
+  font-size: 14px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  color: #29344e;
+}
+.person-note-card > p:last-child {
+  font-size: 12px;
+  margin-top: 7px;
+  color: #6c7a98;
+}
+.person-drawer-empty {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 17px;
+  background: linear-gradient(120deg, #fbfaff, #fff);
+  border: 1px dashed #e0d6fd;
+  border-radius: 12px;
+  color: #7a83a1;
+  font-size: 13px;
+}
+.person-drawer-empty > svg {
+  width: 25px;
+  height: 25px;
+  flex-shrink: 0;
+  color: #a397c3;
+}
+.person-drawer-timeline {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.person-timeline-item {
+  position: relative;
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  padding: 10px 0;
+}
+.person-timeline-item:not(:last-child)::before {
+  position: absolute;
+  content: "";
+  width: 2px;
+  background: #ede7fa;
+  left: 22px;
+  top: 48px;
+  bottom: -13px;
+}
+.person-timeline-icon {
+  position: relative;
+  flex-shrink: 0;
+  width: 45px;
+  height: 45px;
+  display: grid;
+  place-items: center;
+  color: #8646e9;
+  border-radius: 50%;
+  background: #f0e7ff;
+  z-index: 1;
+}
+.person-timeline-icon svg {
+  width: 23px;
+  height: 23px;
+  stroke-width: 1.7;
+}
+.person-timeline-item > div {
+  min-width: 0;
+  flex: 1;
+  padding-top: 3px;
+}
+.person-timeline-item > div > p:first-child {
+  font-size: 14px;
+  font-weight: 550;
+  overflow-wrap: anywhere;
+}
+.person-timeline-item > div > p:last-child {
+  font-size: 13px;
+  color: #68769c;
+  margin-top: 5px;
+  overflow-wrap: anywhere;
+}
+.person-timeline-item:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 69px;
+  right: 0;
+  border-bottom: 1px solid #f0edf7;
+}
+@media (max-width: 1199px) {
+  .person-details-drawer {
+    width: min(90vw, 1000px);
+  }
+}
+@media (max-width: 767px) {
+  .person-details-drawer {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 0;
+  }
+  .person-drawer-header {
+    padding: 24px 55px 20px 20px;
+    gap: 16px;
+  }
+  .person-drawer-avatar {
+    width: 60px;
+    height: 60px;
+    font-size: 21px;
+  }
+  .person-drawer-identity h2 {
+    font-size: 22px;
+  }
+  .person-drawer-identity > p {
+    font-size: 14px;
+  }
+  .person-details-drawer > button:first-child {
+    width: 34px;
+    height: 34px;
+    right: 13px;
+    top: 18px;
+  }
+  .person-details-drawer > button:first-child svg {
+    width: 19px;
+    height: 19px;
+  }
+  .person-drawer-body {
+    padding: 16px;
+  }
+  .person-drawer-info-grid {
+    gap: 10px;
+  }
+  .person-drawer-info-card {
+    gap: 11px;
+    padding: 12px;
+  }
+  .person-drawer-field-icon {
+    width: 40px;
+    height: 40px;
+  }
+  .person-drawer-info-card p:not(.person-drawer-field-label) {
+    font-size: 14px;
+  }
+  .person-drawer-field-label {
+    font-size: 10px;
+  }
+  .person-drawer-section {
+    padding: 12px;
+  }
+  .person-drawer-section h3 {
+    font-size: 14px;
+  }
+  .person-registration-card {
+    padding: 13px;
+  }
+  .person-registration-title {
+    font-size: 13px;
+  }
+  .person-registration-heading {
+    gap: 10px;
+  }
+  .person-registration-heading a {
+    padding-inline: 14px;
+  }
+  .person-timeline-item {
+    gap: 12px;
+  }
+  .person-timeline-item:not(:last-child)::after {
+    left: 57px;
+  }
+  .person-timeline-item > div > p:first-child {
+    font-size: 13px;
+  }
+  .person-timeline-item > div > p:last-child {
+    font-size: 11px;
+  }
+}
+@media (max-width: 539px) {
+  .person-drawer-info-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

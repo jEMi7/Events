@@ -1,0 +1,460 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Event Attendance Hub design system.
+ * White base, light elegant lavender accents, slate text.
+ * All colours are oklch tokens — never hardcode colours in components.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 6px);
+  --radius-md: calc(var(--radius) - 3px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+
+  --font-display: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-info: var(--info);
+  --color-info-foreground: var(--info-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-lav-50: var(--lav-50);
+  --color-lav-100: var(--lav-100);
+  --color-lav-200: var(--lav-200);
+  --color-lav-300: var(--lav-300);
+  --color-lav-400: var(--lav-400);
+  --color-lav-500: var(--lav-500);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-hero-foreground: var(--hero-foreground);
+  --color-hero-muted: var(--hero-muted);
+
+  --shadow-card: 0 1px 2px oklch(0.45 0.08 285 / 0.05), 0 8px 24px oklch(0.45 0.08 285 / 0.06);
+  --shadow-pop: 0 12px 40px oklch(0.45 0.08 285 / 0.12);
+}
+
+:root {
+  --radius: 1rem;
+
+  /* Lavender scale: #F7F5FF #F1EEFF #E9E3FF #C4B5FD #A78BFA #8B7CF6 */
+  --lav-50: oklch(0.977 0.011 300);
+  --lav-100: oklch(0.96 0.02 296);
+  --lav-200: oklch(0.928 0.036 295);
+  --lav-300: oklch(0.812 0.093 295);
+  --lav-400: oklch(0.714 0.148 293);
+  --lav-500: oklch(0.652 0.171 291);
+
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.279 0.033 256);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.279 0.033 256);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.279 0.033 256);
+  --primary: oklch(0.652 0.171 291);
+  --primary-foreground: oklch(0.995 0.003 300);
+  --secondary: oklch(0.96 0.02 296);
+  --secondary-foreground: oklch(0.372 0.09 289);
+  --muted: oklch(0.977 0.011 300);
+  --muted-foreground: oklch(0.54 0.028 257);
+  --accent: oklch(0.928 0.036 295);
+  --accent-foreground: oklch(0.372 0.09 289);
+  --destructive: oklch(0.593 0.196 20);
+  --destructive-foreground: oklch(0.995 0.003 300);
+  --success: oklch(0.63 0.135 158);
+  --success-foreground: oklch(0.995 0.003 300);
+  --warning: oklch(0.766 0.145 76);
+  --warning-foreground: oklch(0.32 0.06 70);
+  --info: oklch(0.65 0.13 240);
+  --info-foreground: oklch(0.995 0.003 300);
+  --border: oklch(0.925 0.012 285);
+  --input: oklch(0.925 0.012 285);
+  --ring: oklch(0.714 0.148 293);
+
+  --chart-1: oklch(0.652 0.171 291);
+  --chart-2: oklch(0.812 0.093 295);
+  --chart-3: oklch(0.63 0.135 158);
+  --chart-4: oklch(0.766 0.145 76);
+  --chart-5: oklch(0.65 0.13 240);
+
+  --sidebar: oklch(0.995 0.004 300);
+  --sidebar-foreground: oklch(0.279 0.033 256);
+  --sidebar-primary: oklch(0.652 0.171 291);
+  --sidebar-primary-foreground: oklch(0.995 0.003 300);
+  --sidebar-accent: oklch(0.96 0.02 296);
+  --sidebar-accent-foreground: oklch(0.372 0.09 289);
+  --sidebar-border: oklch(0.936 0.012 285);
+  --sidebar-ring: oklch(0.714 0.148 293);
+  --hero-foreground: oklch(0.235 0.055 266);
+  --hero-muted: oklch(0.48 0.045 263);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "cv02", "cv03", "cv11";
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.015em;
+  }
+
+  ::selection {
+    background: var(--lav-200);
+  }
+}
+
+@utility surface {
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-card);
+}
+
+@utility lav-wash {
+  background-image: linear-gradient(135deg, var(--lav-50) 0%, var(--lav-100) 45%, var(--color-card) 100%);
+}
+
+@utility lav-ring {
+  box-shadow: inset 0 0 0 1px var(--lav-200);
+}
+
+@utility hero-readability {
+  background: linear-gradient(
+    90deg,
+    color-mix(in oklab, var(--color-background) 94%, transparent) 0%,
+    color-mix(in oklab, var(--lav-50) 78%, transparent) 37%,
+    color-mix(in oklab, var(--lav-100) 26%, transparent) 58%,
+    transparent 74%
+  );
+}
+
+@utility hero-panel {
+  position: relative;
+  overflow: hidden;
+  border-radius: 28px;
+  background: linear-gradient(
+    110deg,
+    rgba(255, 255, 255, 0.96) 0%,
+    rgba(255, 255, 255, 0.94) 48%,
+    rgba(250, 248, 255, 0.92) 72%,
+    rgba(244, 240, 255, 0.9) 100%
+  );
+  backdrop-filter: none;
+  border: 1px solid rgba(235, 230, 250, 0.65);
+  box-shadow: 0 18px 50px rgba(60, 48, 110, 0.08);
+  opacity: 1;
+  animation: hero-enter 600ms ease-out both;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(
+        circle at 88% 22%,
+        rgba(190, 170, 255, 0.12),
+        transparent 42%
+      ),
+      radial-gradient(
+        circle at 55% 100%,
+        rgba(220, 210, 255, 0.1),
+        transparent 48%
+      );
+  }
+
+  & > * {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+@utility hero-primary {
+  border-radius: 0.875rem;
+  box-shadow: 0 12px 24px color-mix(in oklab, var(--primary) 30%, transparent);
+}
+
+@utility hero-secondary {
+  border-color: color-mix(in oklab, var(--lav-300) 38%, transparent);
+  border-radius: 0.875rem;
+  background: color-mix(in oklab, var(--color-background) 92%, var(--lav-50));
+  box-shadow: 0 8px 20px oklch(0.28 0.04 270 / 0.09);
+  color: var(--hero-foreground);
+}
+
+@keyframes hero-enter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 639px) {
+  .hero-readability {
+    background: linear-gradient(
+      180deg,
+      color-mix(in oklab, var(--color-background) 91%, transparent) 0%,
+      color-mix(in oklab, var(--lav-50) 83%, transparent) 62%,
+      color-mix(in oklab, var(--lav-100) 68%, transparent) 100%
+    );
+  }
+
+  .hero-panel {
+    box-shadow: 0 14px 38px oklch(0.28 0.06 285 / 0.12);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-panel {
+    animation: none;
+  }
+}
+
+@utility focus-ring {
+  &:focus-visible {
+    outline: 2px solid var(--color-ring);
+    outline-offset: 2px;
+  }
+}
+
+@utility scrollbar-slim {
+  &::-webkit-scrollbar {
+    height: 10px;
+    width: 10px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: var(--lav-200);
+    border-radius: 999px;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+}
+
+/* Shared column tracks for the attendees table: the header row and every
+   attendee row use the exact same template so headers sit precisely above
+   their values. Horizontal spacing comes from the 12px column gap and the
+   shared 16px inline padding — no per-cell padding differences. */
+@utility table-grid {
+  display: grid;
+  grid-template-columns:
+    36px minmax(150px, 1.15fr) minmax(160px, 1.25fr) 80px 115px 130px 95px 110px
+    minmax(300px, 1fr);
+  column-gap: 12px;
+  align-items: center;
+  padding-inline: 16px;
+}
+
+/* Scoped to the public authentication page; workspace styles remain unchanged. */
+.unified-home {
+  position: relative;
+  isolation: isolate;
+  min-height: 100svh;
+  color: var(--hero-foreground);
+  background: var(--lav-100);
+}
+.unified-home-background {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center bottom;
+}
+.unified-home-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+  align-content: start;
+  gap: 24px;
+  min-height: 100svh;
+  padding: 24px 20px 40px;
+}
+.unified-home-brand img { width: 190px; height: auto; }
+.unified-home-welcome {
+  min-width: 0;
+  padding: 38px;
+  border: 1px solid color-mix(in oklab, var(--background) 65%, transparent);
+  border-radius: 26px;
+  box-shadow: 0 14px 36px oklch(0.28 0.06 285 / 0.1);
+}
+.unified-home-welcome {
+  background: color-mix(in oklab, var(--background) 40%, transparent);
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+}
+.unified-home-welcome h1 {
+  font-family: var(--font-sans);
+  font-size: 52px;
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.045em;
+}
+.unified-home-intro { margin-top: 16px; font-size: 18px; line-height: 1.5; color: var(--secondary-foreground); }
+.unified-home-features { display: grid; gap: 27px; margin-top: 28px; }
+.unified-home-feature { display: flex; align-items: flex-start; gap: 20px; }
+.unified-home-feature-icon {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  border: 1px solid color-mix(in oklab, var(--background) 75%, transparent);
+  background: color-mix(in oklab, var(--lav-200) 85%, transparent);
+  color: oklch(0.55 0.26 292);
+}
+.unified-home-feature-icon svg { width: 28px; height: 28px; }
+.unified-home-feature h2 { margin: 3px 0 4px; font-family: var(--font-sans); font-size: 17px; font-weight: 600; }
+.unified-home-feature p { margin: 0; font-size: 16px; line-height: 1.45; color: var(--secondary-foreground); }
+.unified-home-card-content {
+  animation: unified-home-content-in 180ms ease-out;
+  transition: opacity 150ms ease-in;
+}
+.unified-home-card-content[hidden] { display: none; }
+.unified-home-card-content[data-leaving="true"] { animation: none; opacity: 0; }
+.unified-home-open-auth {
+  height: 50px;
+  margin-top: 28px;
+  border-radius: 12px;
+  background: linear-gradient(110deg, var(--primary), var(--lav-500));
+  font-size: 16px;
+  box-shadow: var(--shadow-card);
+}
+.unified-home-back {
+  margin: -8px 0 20px -8px;
+  color: var(--secondary-foreground);
+  font-size: 13px;
+}
+@keyframes unified-home-content-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .unified-home-card-content { animation: none; transition: none; }
+}
+.unified-home-auth-brand { display: flex; align-items: center; justify-content: center; gap: 16px; margin-bottom: 32px; }
+.unified-home-hub-icon { display: grid; flex-shrink: 0; place-items: center; width: 46px; height: 46px; border-radius: 50%; background: linear-gradient(135deg, var(--lav-400), var(--primary)); color: var(--primary-foreground); box-shadow: var(--shadow-card); }
+.unified-home-hub-icon svg { width: 22px; height: 22px; }
+.unified-home-auth-brand p { font-size: 16px; font-weight: 600; }
+.unified-home-auth-brand div > span { display: block; margin-top: 3px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.18em; color: var(--muted-foreground); }
+.unified-home-auth [role="tablist"] { height: 46px; border-radius: 999px; background: var(--lav-100); padding: 3px; }
+.unified-home-auth [role="tab"] { height: 40px; border-radius: 999px; font-size: 15px; }
+.unified-home-auth [role="tabpanel"] { margin-top: 28px; }
+.unified-home-auth form { display: grid; gap: 22px; }
+.unified-home-auth form > * { margin-block: 0; }
+.unified-home-auth label { color: var(--hero-foreground); font-size: 15px; }
+.unified-home-auth input { height: 50px; margin-top: 8px; border-radius: 12px; border-color: color-mix(in oklab, var(--lav-300) 35%, var(--background)); background: color-mix(in oklab, var(--background) 70%, transparent); font-size: 15px; padding-inline: 16px; box-shadow: none; }
+.unified-home-auth input::placeholder { color: var(--muted-foreground); }
+.unified-home-auth button[type="submit"] { height: 50px; margin-top: 0; border-radius: 12px; background: linear-gradient(110deg, var(--primary), var(--lav-500)); font-size: 16px; box-shadow: var(--shadow-card); }
+.unified-home-divider { display: flex; align-items: center; gap: 28px; margin-block: 28px 20px; color: var(--muted-foreground); font-size: 13px; font-weight: 500; }
+.unified-home-divider span { height: 1px; flex: 1; background: var(--border); }
+.unified-home-google { height: 50px; gap: 12px; border-radius: 12px; background: color-mix(in oklab, var(--background) 84%, transparent); font-size: 16px; color: var(--hero-foreground); }
+.unified-home-input-wrap { position: relative; margin-top: 5px; }
+.unified-home-auth .unified-home-input-wrap input { margin-top: 0; padding-left: 52px; padding-right: 48px; }
+.unified-home-input-icon { position: absolute; left: 17px; top: 15px; width: 20px; height: 20px; color: var(--muted-foreground); pointer-events: none; }
+.unified-home-password-toggle { position: absolute; right: 6px; top: 3px; display: grid; place-items: center; width: 44px; height: 44px; color: var(--muted-foreground); border-radius: 10px; cursor: pointer; }
+.unified-home-password-toggle svg { width: 20px; height: 20px; }
+.unified-home-auth-options { display: flex; justify-content: flex-end; align-items: center; min-height: 22px; }
+.unified-home-text-button { font-size: 14px; color: oklch(0.55 0.26 292); text-decoration: underline; text-underline-offset: 2px; cursor: pointer; }
+.unified-home-password-toggle:focus-visible, .unified-home-text-button:focus-visible { outline: 2px solid var(--ring); outline-offset: 3px; }
+.unified-home-recovery h2 { font-size: 24px; font-weight: 600; }
+.unified-home-recovery p { color: var(--muted-foreground); font-size: 15px; line-height: 1.5; }
+.unified-home-google svg { width: 24px; height: 24px; flex-shrink: 0; }
+@media (min-width: 640px) {
+  .unified-home-layout { padding: 32px; gap: 28px; }
+}
+/* Fixed maximum widths prevent the cards and type growing on wider desktops.
+   Card heights follow their contents, including registration and recovery. */
+@media (min-width: 1024px) {
+  .unified-home-layout {
+    position: relative;
+    grid-template-columns: minmax(0, 510px) minmax(24px, 1fr) minmax(0, 510px);
+    column-gap: 28px;
+    padding: max(185px, 19.66svh) 2.81vw 40px 3.59vw;
+  }
+  .unified-home-brand { position: absolute; top: 6.38svh; left: 4.67vw; }
+  .unified-home-brand img { width: 190px; }
+  .unified-home-welcome { grid-column: 1; }
+}
+@media (max-width: 1023px) {
+  .unified-home-background { object-position: center 54%; transform: none; }
+  .unified-home-welcome { background: color-mix(in oklab, var(--background) 60%, transparent); }
+}
+@media (max-width: 639px) {
+  .unified-home-auth-brand p { font-size: 14px; }
+  .unified-home-auth-brand div > span { font-size: 9px; }
+}
+
+.unified-home-intro-break { display: none; }
+@media (min-width: 1200px) {
+  .unified-home-intro-break { display: initial; }
+}
+@media (max-width: 1199px) {
+  .unified-home-welcome h1 { font-size: 36px; }
+  .unified-home-welcome { padding: 28px; }
+  .unified-home-feature { gap: 16px; }
+  .unified-home-auth-brand { gap: 12px; }
+  .unified-home-auth-brand p { font-size: 14px; }
+  .unified-home-auth-brand div > span { font-size: 9px; }
+}

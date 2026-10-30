@@ -1,0 +1,60 @@
+Planned operations:
+contenttypes.0001_initial
+    Create model ContentType
+    Alter unique_together for contenttype (1 constraint(s))
+contenttypes.0002_remove_content_type_name
+    Change Meta options on contenttype
+    Alter field name on contenttype
+    Raw Python operation
+    Remove field name from contenttype
+auth.0001_initial
+    Create model Permission
+    Create model Group
+    Create model User
+auth.0002_alter_permission_name_max_length
+    Alter field name on permission
+auth.0003_alter_user_email_max_length
+    Alter field email on user
+auth.0004_alter_user_username_opts
+    Alter field username on user
+auth.0005_alter_user_last_login_null
+    Alter field last_login on user
+auth.0006_require_contenttypes_0002
+auth.0007_alter_validators_add_error_messages
+    Alter field username on user
+auth.0008_alter_user_username_max_length
+    Alter field username on user
+auth.0009_alter_user_last_name_max_length
+    Alter field last_name on user
+auth.0010_alter_group_name_max_length
+    Alter field name on group
+auth.0011_update_proxy_permissions
+    Raw Python operation -> Update the content_type of proxy mo…
+auth.0012_alter_user_first_name_max_length
+    Alter field first_name on user
+accounts.0001_initial
+    Create model User
+    Create model ExternalIdentity
+    Create constraint accounts_email_ci_unique on model user
+    Create constraint external_subject_unique on model externalidentity
+admin.0001_initial
+    Create model LogEntry
+admin.0002_logentry_remove_auto_add
+    Alter field action_time on logentry
+admin.0003_logentry_add_action_flag_choices
+    Alter field action_flag on logentry
+api_events.0001_initial
+    Create model Person
+    Create model AppSetting
+    Create model Event
+    Create model HeaderMapping
+    Create model Registration
+    Create model ActivityLog
+    Create model SyncRun
+    Create model OperationalStatus
+    Create model ContactNote
+    Create model CallbackTask
+api_events.0002_person_person_email_ci_unique
+    Create constraint person_email_ci_unique on model person
+sessions.0001_initial
+    Create model Session
